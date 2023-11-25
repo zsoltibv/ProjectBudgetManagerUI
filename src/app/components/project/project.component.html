@@ -1,0 +1,31 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{ project?.name }}</mat-card-title>
+    <mat-card-subtitle
+      >Payment:
+      {{ project?.isSpecial ? "By Project" : "By Hour" }}</mat-card-subtitle
+    >
+  </mat-card-header>
+  <ng-container *ngIf="statistics !== null">
+    <mat-divider class="divider"></mat-divider>
+    <mat-card-content>
+      <p>Initial Budget: {{ statistics?.initialBudget }} $</p>
+      <p>Spent Budget: {{ statistics?.spentBudget }} $</p>
+      <p>Remaining Budget: {{ statistics?.remainingBudget }} $</p>
+      <p>
+        Nr. of done tasks (Special Project):
+        {{ statistics?.numberOfDoneTasksSpecialProject }}
+      </p>
+      <p>
+        Nr. of hours (Normal Project):
+        {{ statistics?.numberOfHoursNormalProject }}
+      </p>
+    </mat-card-content>
+  </ng-container>
+  <ng-container *ngIf="statistics == null">
+    <mat-divider class="divider"></mat-divider>
+    <mat-card-content>
+      <p>There are no statistics for this project.</p>
+    </mat-card-content>
+  </ng-container>
+</mat-card>

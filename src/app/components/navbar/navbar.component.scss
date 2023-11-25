@@ -12,6 +12,7 @@
 }
 
 .menu-items {
+  z-index: 100;
   ul {
     display: flex;
     gap: 20px;
