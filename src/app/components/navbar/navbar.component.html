@@ -1,0 +1,25 @@
+<mat-toolbar color="primary" class="menu-container">
+  <div class="app-info">
+    <a href="/">
+      <span>Budget Manager</span>
+    </a>
+  </div>
+  <div class="menu-mobile" *ngIf="isMobile">
+    <button mat-icon-button class="menu-icon" aria-label="Toggle menu" (click)="toggleMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div class="menu-items" *ngIf="isMenuOpen || !isMobile">
+    <ul>
+      <li>
+        <button mat-button routerLink="/salary-import" (click)="toggleMenu()">Salary Import</button>
+      </li>
+      <li>
+        <button mat-button routerLink="/projects" (click)="toggleMenu()">Projects</button>
+      </li>
+      <li>
+        <button mat-button routerLink="/tasks" (click)="toggleMenu()">Tasks</button>
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>
