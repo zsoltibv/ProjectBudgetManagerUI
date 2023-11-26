@@ -22,6 +22,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
 
+// Charts
+import { NgChartsModule } from 'ng2-charts';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +51,11 @@ import {MatDividerModule} from '@angular/material/divider';
     MatSortModule,
     MatMenuModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    NgChartsModule,
+
+    // Charts
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

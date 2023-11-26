@@ -1,31 +1,63 @@
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title>{{ project?.name }}</mat-card-title>
-    <mat-card-subtitle
-      >Payment:
-      {{ project?.isSpecial ? "By Project" : "By Hour" }}</mat-card-subtitle
-    >
-  </mat-card-header>
-  <ng-container *ngIf="statistics !== null">
-    <mat-divider class="divider"></mat-divider>
-    <mat-card-content>
-      <p>Initial Budget: {{ statistics?.initialBudget }} $</p>
-      <p>Spent Budget: {{ statistics?.spentBudget }} $</p>
-      <p>Remaining Budget: {{ statistics?.remainingBudget }} $</p>
-      <p>
-        Nr. of done tasks (Special Project):
-        {{ statistics?.numberOfDoneTasksSpecialProject }}
-      </p>
-      <p>
-        Nr. of hours (Normal Project):
-        {{ statistics?.numberOfHoursNormalProject }}
-      </p>
-    </mat-card-content>
+<div class="header">
+  <div>
+    <button mat-icon-button (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
+  <div>
+    <h1>Project: {{ project?.name }}</h1>
+  </div>
+</div>
+<div class="project-container">
+  <ng-container *ngIf="statistics">
+    <mat-card class="stats-card">
+      <mat-card-header>
+        <mat-card-title>Budget</mat-card-title>
+        <mat-card-subtitle
+          >Initial Budget: {{ statistics?.initialBudget }} $</mat-card-subtitle
+        >
+      </mat-card-header>
+      <mat-divider class="divider"></mat-divider>
+      <mat-card-content>
+        <canvas baseChart [data]="chartData" [type]="'pie'"> </canvas>
+      </mat-card-content>
+    </mat-card>
+    <div class="card-flex">
+      <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title>Payment Type: </mat-card-title>
+        </mat-card-header>
+        <mat-divider class="divider"></mat-divider>
+        <mat-card-content>
+          <p>
+            {{ project?.isSpecial ? "By Project" : "By Hour" }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="card" *ngIf="project?.isSpecial">
+        <mat-card-header>
+          <mat-card-title>Tasks Finished: </mat-card-title>
+        </mat-card-header>
+        <mat-divider class="divider"></mat-divider>
+        <mat-card-content>
+          <p>{{ statistics?.numberOfDoneTasksSpecialProject }} tasks</p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="card" *ngIf="!project?.isSpecial">
+        <mat-card-header>
+          <mat-card-title>Hours Worked: </mat-card-title>
+        </mat-card-header>
+        <mat-divider class="divider"></mat-divider>
+        <mat-card-content>
+          <p>{{ statistics?.numberOfHoursNormalProject }} hours</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </ng-container>
-  <ng-container *ngIf="statistics == null">
-    <mat-divider class="divider"></mat-divider>
-    <mat-card-content>
-      <p>There are no statistics for this project.</p>
-    </mat-card-content>
+
+  <ng-container *ngIf="!statistics">
+    <p>No details available!</p>
   </ng-container>
-</mat-card>
+</div>

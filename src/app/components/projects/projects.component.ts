@@ -12,7 +12,7 @@ import { ProjectService } from "src/app/services/project.service";
 })
 export class ProjectsComponent {
   projects: Project[] = [];
-  displayedColumns: string[] = ['name', 'isSpecial', 'actions'];
+  displayedColumns: string[] = ['actions', 'name', 'isSpecial'];
   dataSource = new MatTableDataSource<Project>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
