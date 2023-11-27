@@ -14,6 +14,7 @@ export class ProjectsComponent {
   projects: Project[] = [];
   displayedColumns: string[] = ['actions', 'name', 'isSpecial'];
   dataSource = new MatTableDataSource<Project>();
+  loading = true;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -23,6 +24,7 @@ export class ProjectsComponent {
     this.projectService.getAllProjects().subscribe((projects) => {
       this.projects = projects;
       this.dataSource.data = this.projects;
+      this.loading = false;
     });
   }
 
@@ -31,7 +33,6 @@ export class ProjectsComponent {
   }
 
   seeInfo(project: Project): void {
-    this.projectService.setSelectedProject(project);
     this.router.navigate([`/project/${project.projectId}`]);
   }
 }

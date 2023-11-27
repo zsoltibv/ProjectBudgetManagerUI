@@ -9,7 +9,6 @@ import { HttpClient } from "@angular/common/http";
 })
 export class ProjectService {
   private apiEndpoint: string = 'http://localhost:5238/api/Project';
-  private selectedProjectSubject = new BehaviorSubject<Project | null>(null);
 
   constructor(private httpClient: HttpClient) { }
 
@@ -24,11 +23,8 @@ export class ProjectService {
     return this.httpClient.get(projectsUrl);
   }
 
-  setSelectedProject(project: Project): void {
-    this.selectedProjectSubject.next(project);
-  }
-
-  getSelectedProject(): Observable<Project | null> {
-    return this.selectedProjectSubject.asObservable();
+  getProjectById(id: string): Observable<Project | null> {
+    const projectUrl = `${this.apiEndpoint}/GetProjectById/${id}`;
+    return this.httpClient.get<Project | null>(projectUrl);
   }
 }

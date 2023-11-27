@@ -21,6 +21,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 // Charts
 import { NgChartsModule } from 'ng2-charts';
@@ -53,6 +54,7 @@ import { NgChartsModule } from 'ng2-charts';
     MatCardModule,
     MatDividerModule,
     NgChartsModule,
+    MatProgressBarModule,
 
     // Charts
     NgChartsModule
