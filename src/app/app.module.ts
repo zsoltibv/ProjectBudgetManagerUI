@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SalaryImportComponent } from './components/salary-import/salary-import.component';
-import { ProjectsComponent } from './components/projects/projects.component';
-import { TasksComponent } from './components/tasks/tasks.component';
+import { ProjectsComponent } from "./components/projects-page/projects/projects.component";
+import { ProjectComponent } from "./components/projects-page/project/project.component";
 
 //Angular Material
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { ProjectComponent } from './components/project/project.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -25,6 +24,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 // Charts
 import { NgChartsModule } from 'ng2-charts';
+import { EmployeesComponent } from './components/employees-page/employees/employees.component';
+import { EmployeeComponent } from './components/employees-page/employee/employee.component';
+
 
 @NgModule({
   declarations: [
@@ -32,8 +34,9 @@ import { NgChartsModule } from 'ng2-charts';
     NavbarComponent,
     SalaryImportComponent,
     ProjectsComponent,
-    TasksComponent,
-    ProjectComponent
+    ProjectComponent,
+    EmployeesComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,
