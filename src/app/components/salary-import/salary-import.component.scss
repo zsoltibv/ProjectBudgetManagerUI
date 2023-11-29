@@ -1,0 +1,25 @@
+.drop-zone {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.drop-zone div {
+  font-size: 1.2rem;
+}
+
+.drop-zone div,
+.drop-zone div > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drop-zone div > mat-icon {
+  margin-right: 8px;
+}
+
+button{
+  margin-top: 20px;
+}

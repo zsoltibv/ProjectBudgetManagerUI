@@ -1,0 +1,17 @@
+form{
+  display: flex;
+  gap: 10px;
+  button{
+    height: 55px;
+  }
+}
+
+.header{
+  padding-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  h1{
+    margin: 0;
+  }
+}
