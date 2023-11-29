@@ -11,12 +11,9 @@ export class SalaryService {
   constructor(private httpClient: HttpClient) { }
 
   importFile(file: File) {
-    const formData: FormData = new FormData();
+    let formData: FormData = new FormData();
     formData.append('jsonFile', file, file.name);
 
-    const headers = new HttpHeaders();
-    headers.set('Content-Type', 'multipart/form-data');
-
-    return this.httpClient.post(this.apiEndpoint, formData, { headers });
+    return this.httpClient.post(this.apiEndpoint, formData);
   }
 }

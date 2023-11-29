@@ -26,6 +26,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 // NgCharts
 import { NgChartsModule } from 'ng2-charts';
@@ -66,6 +67,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,
+    MatSnackBarModule,
 
     // Charts
     NgChartsModule

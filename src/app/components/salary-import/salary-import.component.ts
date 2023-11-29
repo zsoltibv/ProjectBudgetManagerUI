@@ -1,3 +1,4 @@
+import { MatSnackBar } from "@angular/material/snack-bar";
 import { SalaryService } from './../../services/salary.service';
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 
@@ -10,7 +11,7 @@ export class SalaryImportComponent {
   file: File | null = null;
   @ViewChild('fileInput') fileInput!: ElementRef;
 
-  constructor(private salaryService: SalaryService) { }
+  constructor(private salaryService: SalaryService, private snackBar: MatSnackBar) { }
 
   @HostListener('dragover', ['$event'])
   onDragOver(event: DragEvent): void {
@@ -47,8 +48,24 @@ export class SalaryImportComponent {
   }
 
   importSalaries(): void {
-    if (this.file) {
-      this.salaryService.importFile(this.file);
+    if (this.file != null) {
+      this.salaryService.importFile(this.file).subscribe(
+        (response) => {
+          console.log(response);
+          this.clearFile();
+          this.openSnackBar('Import successful', 'Close');
+        },
+        (error) => {
+          console.error(error);
+          this.openSnackBar('Import failed', 'Close');
+        }
+      );
     }
+  }
+
+  openSnackBar(message: string, action: string): void {
+    this.snackBar.open(message, action, {
+      duration: 3000,
+    });
   }
 }
