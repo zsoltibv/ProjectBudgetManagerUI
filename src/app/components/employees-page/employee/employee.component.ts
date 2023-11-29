@@ -32,7 +32,7 @@ export class EmployeeComponent {
   constructor(private taskService: TaskService, private route: ActivatedRoute, private fb: FormBuilder, private employeeService: EmployeeService) {
     const today = new Date();
     const oneWeekAgo = new Date(today);
-    oneWeekAgo.setDate(oneWeekAgo.getDate() - 6);
+    oneWeekAgo.setDate(oneWeekAgo.getDate() - 30);
 
     this.range = this.fb.group({
       start: [oneWeekAgo],
