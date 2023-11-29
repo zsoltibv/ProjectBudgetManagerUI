@@ -1,1 +1,18 @@
-<p>salary-import works!</p>
+<div class="drop-zone" (dragover)="onDragOver($event)" (drop)="onDrop($event)" (click)="fileInput.click()">
+  <input
+    #fileInput
+    type="file"
+    (change)="onFileSelected($event)"
+    style="display: none"
+  />
+  <label for="fileInput">
+    Drag & drop files here or click to select files
+  </label>
+  <div *ngIf="file">
+    <mat-icon>attach_file</mat-icon>
+    <span>{{ file.name }}</span>
+    <mat-icon (click)="clearFile()">clear</mat-icon>
+  </div>
+</div>
+<button mat-raised-button color="primary" (click)="importSalaries()">Import</button>
+

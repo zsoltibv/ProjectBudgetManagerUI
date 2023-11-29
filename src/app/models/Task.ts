@@ -5,5 +5,5 @@ export interface Task {
   name: string;
   price: number;
   isDone: boolean;
-  Project: Project[];
+  project: Project;
 }

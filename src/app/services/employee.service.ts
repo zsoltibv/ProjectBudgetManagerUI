@@ -15,4 +15,9 @@ export class EmployeeService {
     const employeesUrl = `${this.apiEndpoint}/GetAllEmployees`;
     return this.httpClient.get<Employee[]>(employeesUrl);
   }
+
+  getEmployeeById(id: string): Observable<Employee | null> {
+    const employeeUrl = `${this.apiEndpoint}/GetEmployeeById/${id}`;
+    return this.httpClient.get<Employee | null>(employeeUrl);
+  }
 }

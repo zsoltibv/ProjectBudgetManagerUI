@@ -28,6 +28,10 @@ export class EmployeesComponent {
     });
   }
 
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
+  }
+
   seeInfo(employee: Employee): void {
     this.router.navigate([`/employee/${employee.employeeId}`]);
   }
