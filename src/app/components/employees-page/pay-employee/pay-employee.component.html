@@ -1,0 +1,63 @@
+<div class="header">
+  <div>
+    <button mat-icon-button (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
+  <div>
+    <h1>Salaries: {{ employee?.name }}</h1>
+  </div>
+</div>
+<div class="table-header">
+  <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="startDate">
+      <th mat-header-cell *matHeaderCellDef>Start Date</th>
+      <td mat-cell *matCellDef="let element">{{ element.startDate | dateToWordsPipe }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="endDate">
+      <th mat-header-cell *matHeaderCellDef>End Date</th>
+      <td mat-cell *matCellDef="let element">{{ element.endDate | dateToWordsPipe }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="grossAmount">
+      <th mat-header-cell *matHeaderCellDef>Gross Amount</th>
+      <td mat-cell *matCellDef="let element">{{ element.grossAmount }} $</td>
+    </ng-container>
+
+    <ng-container matColumnDef="grossAmountAfterTax">
+      <th mat-header-cell *matHeaderCellDef>Gross Amount After Tax</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.grossAmountAfterTax }} $
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="isPaid">
+      <th mat-header-cell *matHeaderCellDef>Is Paid</th>
+      <td mat-cell *matCellDef="let element">{{ element.isPaid ? 'Yes' : 'No'  }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef class="actions-cell">Actions</th>
+      <td mat-cell *matCellDef="let element" class="actions-cell">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="paySalary(element)" [disabled]="!!element.isPaid">Pay</button>
+        </mat-menu>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+  >
+  </mat-paginator>
+</div>

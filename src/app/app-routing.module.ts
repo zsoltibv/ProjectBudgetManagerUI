@@ -5,6 +5,7 @@ import { ProjectComponent } from "./components/projects-page/project/project.com
 import { ProjectsComponent } from "./components/projects-page/projects/projects.component";
 import { EmployeesComponent } from "./components/employees-page/employees/employees.component";
 import { EmployeeComponent } from "./components/employees-page/employee/employee.component";
+import { PayEmployeeComponent } from "./components/employees-page/pay-employee/pay-employee.component";
 
 const routes: Routes = [
   { path: 'salary-import', component: SalaryImportComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'project/:projectId', component: ProjectComponent },
   { path: 'employees', component: EmployeesComponent },
   { path: 'employee/:employeeId', component: EmployeeComponent},
+  { path: 'pay/:employeeId', component: PayEmployeeComponent},
   { path: '**', component: SalaryImportComponent },
 ];
 

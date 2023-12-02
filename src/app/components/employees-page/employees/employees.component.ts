@@ -35,4 +35,8 @@ export class EmployeesComponent {
   seeInfo(employee: Employee): void {
     this.router.navigate([`/employee/${employee.employeeId}`]);
   }
+
+  payEmployee(employee: Employee): void {
+    this.router.navigate([`/pay/${employee.employeeId}`]);
+  }
 }
