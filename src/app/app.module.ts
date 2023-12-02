@@ -31,6 +31,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 // NgCharts
 import { NgChartsModule } from 'ng2-charts';
 import { ReactiveFormsModule } from "@angular/forms";
+import { PayEmployeeComponent } from './components/employees-page/pay-employee/pay-employee.component';
+import { DateToWordsPipePipe } from './pipes/date-to-words-pipe.pipe';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { ReactiveFormsModule } from "@angular/forms";
     ProjectsComponent,
     ProjectComponent,
     EmployeesComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    PayEmployeeComponent,
+    DateToWordsPipePipe
   ],
   imports: [
     BrowserModule,
@@ -70,7 +74,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     MatSnackBarModule,
 
     // Charts
-    NgChartsModule
+    NgChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
